@@ -367,20 +367,6 @@
     let selectedCategory = 'ALL';
     let selectedImageBase64 = '';
 
-    const SAMPLE_DATA = [
-      {
-        id: 'sample_1',
-        title: '나나곰 바게트',
-        artist: '나나곰',
-        category: '일러스트',
-        date: '2026-10-23',
-        tags: ['귀여운', '체크패턴', '바게트'],
-        memo: '나나곰 님의 바게트 일러스트 커미션입니다.',
-        image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80',
-        createdAt: Date.now()
-      }
-    ];
-
     document.addEventListener('DOMContentLoaded', () => {
       loadArtData();
       renderGallery();
@@ -392,10 +378,10 @@
         try {
           artList = JSON.parse(storedData);
         } catch (e) {
-          artList = SAMPLE_DATA;
+          artList = [];
         }
       } else {
-        artList = SAMPLE_DATA;
+        artList = [];
       }
     }
 
@@ -419,7 +405,7 @@
       }
 
       grid.classList.remove('hidden');
-      emptyState.add ? emptyState.classList.add('hidden') : null;
+      emptyState.classList.add('hidden'); // 빈 상태 문구가 숨겨지도록 수정 완료
 
       items.forEach(item => {
         const card = document.createElement('div');
