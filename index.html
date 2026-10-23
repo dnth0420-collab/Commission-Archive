@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>G X P ARXHIVE</title>
+  <title>GEPI ARXHIVE</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons CDN -->
@@ -85,7 +85,7 @@
           </div>
           <div>
             <h1 class="text-xl sm:text-2xl font-bold tracking-wider font-title text-brand-gold flex items-center gap-2">
-              G X P ARXHIVE
+              GEPI ARXHIVE
             </h1>
             <p class="text-xs text-brand-muted tracking-tight font-medium">
               &gt; 계피 커미션 보관함
@@ -93,7 +93,7 @@
           </div>
         </div>
 
-        <!-- Right Header Actions (스크린샷 버튼 스타일) -->
+        <!-- Right Header Actions -->
         <div class="flex items-center space-x-3">
           <button onclick="openAddModal()" class="px-4 py-2 text-xs sm:text-sm font-semibold text-brand-bg bg-brand-gold hover:bg-brand-goldHover rounded-lg shadow-lg shadow-brand-gold/10 transition-all flex items-center gap-2">
             <i class="fa-solid fa-feather text-sm"></i>
@@ -119,7 +119,7 @@
   <!-- Main Content Area -->
   <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
     
-    <!-- Controls Box (검색창 + 필터 버튼 + 정렬) -->
+    <!-- Controls Box -->
     <div class="bg-brand-surface/80 border border-brand-border/60 rounded-2xl p-4 sm:p-5 mb-8 shadow-xl">
       <!-- 상단: 검색창 & 카테고리 알약 탭 -->
       <div class="flex flex-col lg:flex-row gap-4 justify-between items-stretch lg:items-center pb-4 border-b border-brand-border/40">
@@ -133,7 +133,7 @@
           </button>
         </div>
 
-        <!-- Category Pill Buttons (스크린샷 스타일) -->
+        <!-- Category Pill Buttons -->
         <div class="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 custom-scrollbar" id="categoryPillGroup">
           <button onclick="setCategoryFilter('ALL')" data-category="ALL" class="pill-btn active px-4 py-1.5 rounded-full text-xs font-semibold border transition-all bg-brand-gold/20 text-brand-gold border-brand-gold/50">전체보기</button>
           <button onclick="setCategoryFilter('일러스트')" data-category="일러스트" class="pill-btn px-4 py-1.5 rounded-full text-xs font-medium border transition-all bg-brand-card hover:bg-brand-border text-gray-300 border-brand-border">일러스트</button>
@@ -201,7 +201,7 @@
   <!-- Footer -->
   <footer class="border-t border-brand-border/40 py-8 text-center text-xs text-brand-muted">
     <div class="max-w-7xl mx-auto px-4">
-      <p>© G X P ARXHIVE. 계피 커미션 보관함.</p>
+      <p>© GEPI ARXHIVE. 계피 커미션 보관함.</p>
     </div>
   </footer>
 
@@ -361,13 +361,12 @@
 
   <!-- JavaScript Logic -->
   <script>
-    const STORAGE_KEY = 'gxp_arxhive_data';
+    const STORAGE_KEY = 'gepi_arxhive_data';
     let artList = [];
     let currentFilteredList = [];
     let selectedCategory = 'ALL';
     let selectedImageBase64 = '';
 
-    // Sample data to initialize if empty
     const SAMPLE_DATA = [
       {
         id: 'sample_1',
@@ -420,7 +419,7 @@
       }
 
       grid.classList.remove('hidden');
-      emptyState.classList.add('hidden');
+      emptyState.add ? emptyState.classList.add('hidden') : null;
 
       items.forEach(item => {
         const card = document.createElement('div');
@@ -696,7 +695,7 @@
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(artList, null, 2));
       const downloadAnchor = document.createElement('a');
       downloadAnchor.setAttribute("href", dataStr);
-      downloadAnchor.setAttribute("download", `GXP_ARXHIVE_BACKUP_${new Date().toISOString().slice(0,10)}.json`);
+      downloadAnchor.setAttribute("download", `GEPI_ARXHIVE_BACKUP_${new Date().toISOString().slice(0,10)}.json`);
       document.body.appendChild(downloadAnchor);
       downloadAnchor.click();
       downloadAnchor.remove();
